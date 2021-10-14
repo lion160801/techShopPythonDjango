@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}ITECH - Laptop Gaming,PC{%endblock%}</title>
+    {%load static%}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="{%static 'shop/base.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'shop/mainn.css'%}">
+    <link rel="stylesheet" href="{%static 'shop/assets/fonts/fontawesome-free-5.15.3-web/fontawesome-free-5.15.3-web/css/all.min.css' %}"/>
+    <link rel="SHORTCUT ICON"  href="{%static 'shop/logoweb.ico' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .mySlides {display:none;}
+    </style>
+</head>
+<body>
+<div class="main">
+    <header class="header">
+        <div class="grid">
+            <nav class="header__navbar">
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item">
+                        <a class="header__navbar-item-link header__navbar-item-link--property">
+                            <i class="far fa-question-circle"></i>
+                            Tư vấn
+                        </a>
+                    </li>
+                    <li class="header__navbar-user header__navbar-item">
+                        <ul class="header__navbar-user-menu">
+                        </ul>
+                        {% if request.session.customer %}
+                        <i class="header__navbar-user-icon fas fa-user"></i>
+                        <span class="header__navbar-user-name">{{ cus.name }}</span>
+                        <a href="/logout" class="header__navbar-item-link">Đăng Xuất</a>
+                        {% else %}
+                        <a href="/register" class="header__navbar-item-link">Đăng Ký</a>
+                        <a href="/login" class="header__navbar-item-link">Đăng Nhập</a>
+                        {% endif %}
+                </ul>
+                </li>
+                </ul>
+            </nav>
+            <!-- Header with search -->
+            <div class="header-with-search">
+                <a href="{% url 'index'%}">
+                    <div class="header__logo">
+                        <img class="header__logo-img" src="https://cdn.worldvectorlogo.com/logos/itech.svg"
+                             alt="Itech logo vector">
+                    </div>
+                </a>
+                <div class="header__search">
+                    <div class="header__search-input-wrap">
+                        <form action="{% url 'search_results' %}" method="get" class="header__search-input" id="search">
+                            <input name='q' type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm...">
+                        </form>
+                    </div>
+                    <button form="search" type="submit" class="header__search-btn" >
+                        <i class="header__search-btn-icon fas fa-search"></i>
+                    </button>
+                </div>
+                <!-- cart -->
+                <div class="header__cart">
+                    <div class="header__cart-wrap">
+                        <a href="{% url 'cart'  %}" class="header__cart-icon fas fa-shopping-cart header__navbar-item-link" ></a>
+                         <!--i class="header__cart-icon fas fa-shopping-cart"></i-->
+                        <span class="header__cart-notice">{{request.session.cart.keys|length}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {%block content%}
+    {%endblock%}
+    {%block success%}
+    {%endblock%}
+</body>
+</html>

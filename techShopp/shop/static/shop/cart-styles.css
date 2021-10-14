@@ -1,0 +1,135 @@
+.cart_name
+{
+    padding: 10px;
+    text-transform:uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    
+}
+.header__cart-list-item
+{
+    padding-right: 30px;
+}
+.cart_wrapper
+{
+    background-color: #fde7f9;
+    background-image: linear-gradient(-315deg, #fde7f9 0%, #aacaef 74%);
+    width: 100%;
+}
+.table
+{
+    width: 100%;
+    border-collapse: collapse;
+    
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+td{
+    text-align: center;
+}
+
+.table__head
+{
+    text-align: center;
+    padding: 5px;
+    color: white;
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+
+
+}
+.m-2.p-3
+{   
+    width: 30%;
+    padding: 30px;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.modal-body
+{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
+    
+}
+
+.form-group
+{
+    height: 35px;
+    width: 100%;
+    padding-top: 20px;
+    position: relative;
+}
+.form-group input
+{
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid silver;
+}
+.form-group .underline
+{
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+}
+.form-group .underline::before
+{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: darkblue;
+    transform: scale(0);
+}
+.form-group input:focus + label, .form-group input:valid + label
+{
+    transform: translateY(-20px);
+    font-size: 12px;
+    color:darkblue;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.form-group label
+{
+    position:absolute;
+    color: silver;
+    bottom: 10px;
+    left: 0px;
+    pointer-events: none;
+}
+.form-group input:focus ~ .underline:before, .form-group input:valid ~ .underline:before
+{
+    transform: scale(1);
+    transition: 1s;
+}
+.m-2.p-3 form .btn
+{
+    margin-top: 20px;
+    height: 30px;
+    width: 100px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #04619f 74%); 
+}
+.m-2.p-3 form .btn:hover
+{
+    background-color: #000000;
+    background-image: linear-gradient(-147deg, #000000 0%, #04619f 74%);
+    transition: 0.5s    ;
+}
+.m-2.p-3 form .btn:active
+{
+    background-image: linear-gradient(315deg, #4062bb 0%, #ebebeb 74%);
+}
+

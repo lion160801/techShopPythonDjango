@@ -1,0 +1,51 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    <div class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+            <div class="auth-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                     <span class="auth-form__switch-btn" onclick="window.location.href='/register'" >Đăng ký</span>
+                    </div>
+                 <div class="Login">
+                    <form action="/login" method="POST">
+                {% csrf_token %}
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <div class="auth-form__form">
+                    <div class="auth-form__group">
+                <!-- email -->
+                    <!--label for="">Email</label-->
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}"
+                    class=" form-control-sm form-control auth-form__input" placeholder="Email">
+                    </div>
+
+                <!-- password -->
+                <div class="auth-form__group">
+                    <!--label for="">Password</label-->
+                    <input type="password"
+                    name="password"
+                    id=""
+                     class="form-control form-control-sm auth-form__input" placeholder="Mật khẩu">
+                </div>
+                <div class="auth-form__controls">
+                    <input class="btn btn--primary" type="submit" value="ĐĂNG NHẬP">
+                </div>
+                </div>
+            </form>
+         </div>
+            <div class="auth-form__controls">
+                <button class="btn btn-normal auth-form__controls-back" onclick="window.location.href='/'" >TRỞ LẠI</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

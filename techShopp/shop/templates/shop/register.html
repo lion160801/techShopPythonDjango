@@ -1,0 +1,68 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    <div class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+              <div class="auth-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn" onclick="window.location.href='/login'">Đăng nhập</span>
+                    </div>
+            <div class="Register">
+                <form action="/register" method="POST">
+                {% csrf_token %}
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                     <div class="auth-form__form">
+                <!-- firstname -->
+                <div class="auth-form__group">
+                    <input type="text" name="name"
+                     id="" value="{{values.name}}" class="auth-form__input"
+                     placeholder="Tên khách hàng">
+                </div>
+
+                <!-- address -->
+                <div class="auth-form__group">
+                    <input type="text" name="address"
+                    id="" value="{{values.address}}" class="auth-form__input"
+                    placeholder="Địa chỉ">
+                </div>
+                <!-- mobile -->
+                <div class="auth-form__group">
+                    <input type="text" name="mobile"
+                    id="" class="auth-form__input"
+                    value="{{values.mobile}}"
+                    placeholder="Số điện thoại">
+                </div>
+                <!-- email -->
+                <div class="auth-form__group">
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}"
+                    class="auth-form__input" placeholder="Email">
+                </div>
+                <!-- password -->
+                <div class="auth-form__group">
+                    <input type="password"
+                    name="password"
+                    id=""
+                     class="auth-form__input" placeholder="Mật khẩu">
+                </div>
+                <div class="auth-form__controls">
+                    <input class="btn btn--primary" type="submit" value="ĐĂNG KÝ">
+                </div>
+                 </div>
+            </form>
+        </div>
+            <div class="auth-form__controls">
+                <button class="btn btn-normal auth-form__controls-back" onclick="window.location.href='/'">TRỞ LẠI</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

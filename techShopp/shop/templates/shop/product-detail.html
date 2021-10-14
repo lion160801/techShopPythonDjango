@@ -1,0 +1,165 @@
+{% extends 'shop/base.html' %}
+{% block title %}{{product.pro_name}}{% endblock %}
+
+{%block content%}
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{%static 'shop/product_detail.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'shop/bootstrap.min.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'shop/fontawesome.min.css'%}">
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="{%static 'shop/bootstrap.min.js'%}"></script>
+<main role="main">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane" id="pic-1">
+                            <img src="{{product.pro_image.url}}">
+                        </div>
+                        <div class="tab-pane" id="pic-2">
+                            <img src="{{product.pro_image.url}}">
+                        </div>
+                        <div class="tab-pane active" id="pic-3">
+                            <img src="{{product.pro_image.url}}">
+                        </div>
+                    </div>
+                    <ul class="preview-thumbnail nav nav-tabs">
+                        <li class="active">
+                            <a data-target="#pic-1" data-toggle="tab" class="">
+                                <img src="{{product.pro_image.url}}">
+                            </a>
+                        </li>
+                        <li class="">
+                            <a data-target="#pic-2" data-toggle="tab" class="">
+                                <img src="{{product.pro_image.url}}">
+                            </a>
+                        </li>
+                        <li class="">
+                            <a data-target="#pic-3" data-toggle="tab" class="active">
+                                <img src="{{product.pro_image.url}}">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="details col-md-6">
+                    <h2 class="product-title">{{product.pro_name}}</h2>
+                    <p class="product-description-tittle">Bảo hành và dịch vụ:</p>
+                    <p class="product-description">
+                        ♦ Bảo hành 1 năm chính hãng tại các TTBH MSI trên toàn quốc.<br>
+                        ♦ Miễn phí vệ sinh laptop trong thời gian bảo hành.<br>
+                        ♦ Đổi mới trong 7 ngày nếu bị lỗi kĩ thuật.<br>
+                        ♦ Miễn phí quẹt thẻ ATM, Visa, Master.<br>
+                        ♦ Chính sách đảm bảo hài lòng. Chi tiết.<br>
+                        ♦ Linh kiện nâng cấp bảo hành theo tiêu chuẩn nhà sản xuất.<br>
+                        ♦ Hỗ trợ cài đặt hệ điều hành và phần mềm.</p>
+                    <h4 class="price" style="font-size: 2.3rem;">Giá : <span style="font-size: 2.3rem;">{{product.pro_price}} vnđ</span>
+                    </h4>
+                    <p class="vote" style="font-size: 1.6rem;"><strong>100%</strong> hàng <strong>Chất lượng</strong>,
+                        đảm bảo
+                        <strong>Uy
+                            tín</strong>!</p>
+                    <h4 class="price" style="font-size: 1.6rem;">Tình trạng : <span
+                            style="font-size: 1.6rem;">Còn hàng</span></h4>
+                    <!--div class="form-group" style="font-size: 1.6rem;font-weight: 500;">
+                        <label for="soluong">Số lượng đặt mua:</label>
+                        <input type="number" class="auth-form__input" id="number" name="number" value="1" min="1">
+                    </div-->
+                    <!--new cart-->
+                    <form action="/detail{{product.pro_id}}/" method="POST" class="btn-block">
+                        {% csrf_token %}
+                        <input hidden type="text" name='product' value='{{product.pro_id}}'>
+                        <input type="submit" class="header__cart-view-cart btn btn--primary" style="text-align:center;margin-top:  20px;height: 60px;width: 250px;font-size: 2.1rem;"
+                               value="Thêm vào giỏ hàng">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="container-fluid">
+            <h3 style="font-size: 2.5rem;font-weight: 600;">Thông tin chi tiết về Sản phẩm</h3>
+            <div class="row">
+                <div class="col" style="color: var(--black-color);font-weight: 600;text-align: center;font-size: 4rem;">
+                    {{product.pro_name}}
+                </div>
+                <img src="{{product.pro_image.url}}" alt="" width="100%" height="900px"
+                     style="margin:20px 0 20px 0;">
+                <br>
+                <span style="font-size: 1.8rem; font-family: tahoma, arial, helvetica, sans-serif; color: var(--black-color);">
+                                <strong>{{product.pro_name}}</strong>
+                                đốt cháy thế giới laptop gaming bằng cách kết hợp bộ xử lý AMD Ryzen ™ công nghệ 7nm tiên tiến nhất và đồ họa Radeon ™ RX. Âm thanh Hi-Res nhập vai mang đến trải nghiệm âm thanh không bị mất. Hệ thống nhiệt độc quyền của Cooler Boost 5 đảm bảo tính nhất quán của mọi tác vụ mạnh mẽ. Với các tính năng sẵn sàng cho trò chơi này, bạn đã sẵn sàng chinh phục mọi trận chiến.
+                            </span>
+                <br>
+                <div class="ads">
+                    <div class="grid">
+                        <div class="grid__row" style="margin-top: 10px;">
+                            <div class="grid__column-2-4">
+                                <img width="252px" height="164px"
+                                     src="{{product.pro_image.url}}" alt=""
+                                     class="ads-img">
+                            </div>
+                            <div class="grid__column-2-4">
+                                <img width="252px" height="164px"
+                                     src="{{product.pro_image.url}}" alt=""
+                                     class="ads-img">
+                            </div>
+                            <div class="grid__column-2-4">
+                                <img width="252px" height="164px"
+                                     src="{{product.pro_image.url}}" alt=""
+                                     class="ads-img">
+                            </div>
+                            <div class="grid__column-2-4">
+                                <img width="252px" height="164px"
+                                     src="{{product.pro_image.url}}" alt=""
+                                     class="ads-img">
+                            </div>
+                            <div class="grid__column-2-4">
+                                <img width="252px" height="164px"
+                                     src="{{product.pro_image.url}}" alt=""
+                                     class="ads-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span style="font-size: 1.8rem; font-family: tahoma, arial, helvetica, sans-serif; color: var(--black-color);">
+                                <strong>MỎNG HƠN VÀ NHẸ HƠN NHỜ VỎ NHÔM ALUMINUM
+                                    THIN & LIGHT ALUMINUM HAIR-BRUSHED AESTHETICS</strong>
+                                    Với thiết kế mặt trên và mặt bàng phím bằng kim loại, kết hợp với thiết kế tương lai hoàn toàn mới cho trận chiến mới.
+                            </span>
+                <br>
+                <img src="{{product.pro_image.url}}" alt="" width="100%"
+                     height="900px" style="margin:20px 0 20px 0;">
+                <br>
+                <span style="font-size: 1.8rem; font-family: tahoma, arial, helvetica, sans-serif; color: var(--black-color);">
+                                <strong>{{product.pro_name}}</strong>
+                                thiết kế viền màn hình benzel siêu mỏng cho trải nghiệm hình ảnh đẹp hơn và không bị phân tâm.
+                            </span>
+                <br>
+                <img src="{{product.pro_image.url}}" alt="" width="100%" height="900px"
+                     style="margin:20px 0 20px 0;">
+                <br>
+                <span style="font-size: 1.8rem; font-family: tahoma, arial, helvetica, sans-serif; color: var(--black-color);">
+                                Giải pháp tản nhiệt chuyên dụng cho cả CPU và GPU với tối đa 7 ống dẫn nhiệt. Hoạt động hài hòa bằng cách giảm thiểu nhiệt và tối đa hóa luồng không khí. Do đó hiệu suất chơi game mượt mà trong khung máy nhỏ gọn.
+                            </span>
+                <br>
+                <img src="{{product.pro_image.url}}" alt="" width="100%"
+                     height="900px" style="margin:20px 0 20px 0;">
+                <br>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- End block content -->
+</main>
+
+<footer class="footer">
+    <div class="footer__logo">
+        <img class="footer__logo-img footer" src="https://cdn.worldvectorlogo.com/logos/itech.svg"
+             alt="Itech logo vector">
+    </div>
+    <p class="footer-text">ITECH chuyên Laptop Gaming MSI & Asus & Acer, máy tính PC chính hãng</p>
+    <p class="footer-text">Powered by Team 7</p>
+</footer>
+{%endblock%}

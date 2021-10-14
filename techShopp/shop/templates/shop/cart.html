@@ -1,0 +1,154 @@
+{% extends 'shop/base.html' %}
+{% block title %}Giỏ hàng của {{cus.name}}{% endblock%}
+
+{%block content%}
+{%load static%}
+{% load cart %}
+<link rel="stylesheet" href="{%static 'shop/cart-styles.css'%}">
+<div class="main">
+    <div class="form_background">
+        <div class="form__container">
+            <div class="cart_wrapper">
+                <h1 class=cart_name>Giỏ hàng của {{cus.name}}</h1>
+                <ul class="header__cart-list-item" style="height: 450px;">
+                    <div class="container">
+                        <div class="border rounded p-4 m-4" >
+                            <hr>
+                            <table class="table" >
+                                <thead>
+                                <tr>
+                                    <th class="table__head">STT</th>
+                                    <th class="table__head">Hình ảnh</th>
+                                    <th class="table__head">Tên sản phẩm</th>
+                                    <th class="table__head">Giá</th>
+                                    <th class="table__head">Số lượng</th>
+                                    <th class="table__head">Tổng</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for product in products %}
+                                <tr>
+                                    <td><h2>{{forloop.counter}}</h2></td>
+                                    <td><img style="height: 80px;" class="rounded-circle"
+                                             src="{{product.pro_image.url}}"
+                                             alt=""></td>
+                                    <td><h2>{{product.pro_name}}</h2></td>
+                                    <td><h2>{{product.pro_price}}.VNĐ</h2></td>
+                                    <td><h2>{{product|cart_quantity:request.session.cart}}</h2></td>
+                                    <td><h2>{{product|price_total:request.session.cart}}.VNĐ</h2></td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th colspan="4"></th>
+                                    <th class="" colspan=""><h1>Tổng</h1></th>
+                                    <th><h1>{{products|total_cart_price:request.session.cart}}.VNĐ</h1></th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                            <hr>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+   <!-- Modal -->
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="m-2 p-3">
+                <form action="/cart" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" name="address" id="" class="form-control" placeholder=""
+                               aria-describedby="helpId" required>
+                        <label for="">Address</label>
+                        <div class="underline"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phone" id="" class="form-control" placeholder=""
+                               aria-describedby="helpId" required>
+                        <label for="">Phone</label>
+                        <div class="underline"></div>
+                    </div>
+                    <input type="submit" class="btn float-right btn-outline-info col-lg-6"
+                           value="Đặt hàng">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        {% block success %}
+        {% endblock %}
+    </div>
+    <div class="content section" style="max-width:2000px;margin-top: 40px;margin-bottom: 40px;">
+        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2020/11/TUF-F15-1.jpg" style="width:100%">
+        <img class="mySlides"
+             src="https://xgear.vn/wp-content/uploads/2021/03/NB_Vn_LNY-Promotion_BannerW885xH522px_1_XGear.jpg"
+             style="width:100%">
+        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2020/12/Asus-AMD-4000-series-slider.jpg"
+             style="width:100%">
+        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2021/03/bão-mờ-si-slider-1.jpg"
+             style="width:100%">
+        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2020/12/freebuild-slider_compressed.jpg"
+             style="width:100%">
+    </div>
+    <script>
+          var myIndex = 0;
+          carousel();
+
+          function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}
+            x[myIndex-1].style.display = "block";
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+          }
+    </script>
+    <div class="ads">
+        <div class="grid">
+            <div class="grid__row">
+                <div class="grid__column-2-4">
+                    <img width="270" height="427"
+                         src="https://xgear.vn/wp-content/uploads/2021/02/asus-trang-ch%E1%BB%A7.jpg" alt=""
+                         class="ads-img">
+                </div>
+                <div class="grid__column-2-4">
+                    <img width="270" height="427"
+                         src="https://xgear.vn/wp-content/uploads/2020/12/MSI-trang-ch%E1%BB%A7.jpg" alt=""
+                         class="ads-img">
+                </div>
+                <div class="grid__column-2-4">
+                    <img width="270" height="427" src="https://xgear.vn/wp-content/uploads/2020/02/PC.jpg" alt=""
+                         class="ads-img">
+                </div>
+                <div class="grid__column-2-4">
+                    <img width="270" height="427"
+                         src="https://xgear.vn/wp-content/uploads/2020/02/M%C3%A0n-h%C3%ACnh-mua-k%C3%A8m-PC.jpg" alt=""
+                         class="ads-img">
+                </div>
+                <div class="grid__column-2-4">
+                    <img width="270" height="427" src="https://xgear.vn/wp-content/uploads/2020/02/Acer-Gaming.jpg"
+                         alt=""
+                         class="ads-img">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer__logo">
+            <img class="footer__logo-img footer" src="https://cdn.worldvectorlogo.com/logos/itech.svg"
+                 alt="Itech logo vector">
+        </div>
+        <p class="footer-text">ITECH chuyên Laptop Gaming MSI & Asus & Acer, máy tính PC chính hãng</p>
+        <p class="footer-text">Powered by Team 7</p>
+    </footer>
+</div>
+
+{%endblock%}
+

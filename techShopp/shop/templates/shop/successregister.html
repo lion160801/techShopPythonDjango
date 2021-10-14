@@ -1,0 +1,22 @@
+{% extends 'shop/base.html' %}
+
+{% block success %}
+{%load static%}
+<link rel="stylesheet" href="{%static 'shop/style-success.css'%}">
+    <div class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+                <div class="auth-form__container">
+                    <div class="sc_icon">
+                        <i class="fas fa-check-circle" style="font-size: 25px"></i>
+                    </div>
+                    <div class="sc_header">
+                        <h1 style="font-size: 20px;font-weight: 400; ">Đăng kí thành công</h1>
+                    </div>
+                    <div class="sc_controls">
+                <button class="btn sc_btn sc_btn__back" onclick="window.location.href='/login'" >ĐĂNG NHẬP</button>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
