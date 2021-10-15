@@ -69,12 +69,20 @@
                         <span class="header__cart-notice">{{request.session.cart.keys|length}}</span>
                     </div>
                 </div>
+                 <div>
+                     {% if request.session.customer %}
+                        <a href="{% url 'detail' %}" class="header__navbar-item-link">Đơn hàng đã mua</a>
+                     {% endif %}
+
+                </div>
             </div>
         </div>
+
     </header>
     {%block content%}
     {%endblock%}
     {%block success%}
     {%endblock%}
+</div>
 </body>
 </html>

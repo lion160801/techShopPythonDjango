@@ -65,6 +65,15 @@ class Product_Detail(View):
         context ={'product': product,'cus':recentlyCus(request)}
         return render(request, 'shop/product-detail.html',context)
 
+
+# Trang chi tiết sản phẩm
+class Order_Detail(View):
+    def get(self, request, p_id):
+        order = Product.objects.get
+        print('Sản phẩm:', order)
+        context ={'order': order}
+        return render(request, 'shop/product-detail.html',context)
+
 #Trang đơn hàng
 class Cart(View):
     def get(self , request):
@@ -194,3 +203,8 @@ class SearchResultsView(ListView):
             Q(pro_name__icontains=query) | Q(brand__name__icontains=query)
         )
         return Psearch_list
+
+def detail(request):
+    cus = recentlyCus(request)
+    order = Order.objects.all().filter( customer = cus)
+    return render(request, 'shop/detail.html', {'order': order})

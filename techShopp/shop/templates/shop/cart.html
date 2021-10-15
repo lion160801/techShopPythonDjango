@@ -62,13 +62,13 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <input type="text" name="address" id="" class="form-control" placeholder=""
-                               aria-describedby="helpId" required>
+                               aria-describedby="helpId" value="{{ cus.address}}" required>
                         <label for="">Address</label>
                         <div class="underline"></div>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="phone" id="" class="form-control" placeholder=""
-                               aria-describedby="helpId" required>
+                        <input type="text" name="phone" class="form-control" placeholder=""
+                               aria-describedby="helpId" value="{{ cus.mobile}}" required>
                         <label for="">Phone</label>
                         <div class="underline"></div>
                     </div>
@@ -82,64 +82,64 @@
         {% block success %}
         {% endblock %}
     </div>
-    <div class="content section" style="max-width:2000px;margin-top: 40px;margin-bottom: 40px;">
-        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2020/11/TUF-F15-1.jpg" style="width:100%">
-        <img class="mySlides"
-             src="https://xgear.vn/wp-content/uploads/2021/03/NB_Vn_LNY-Promotion_BannerW885xH522px_1_XGear.jpg"
-             style="width:100%">
-        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2020/12/Asus-AMD-4000-series-slider.jpg"
-             style="width:100%">
-        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2021/03/bão-mờ-si-slider-1.jpg"
-             style="width:100%">
-        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2020/12/freebuild-slider_compressed.jpg"
-             style="width:100%">
-    </div>
-    <script>
-          var myIndex = 0;
-          carousel();
+<!--    <div class="content section" style="max-width:2000px;margin-top: 40px;margin-bottom: 40px;">-->
+<!--        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2020/11/TUF-F15-1.jpg" style="width:100%">-->
+<!--        <img class="mySlides"-->
+<!--             src="https://xgear.vn/wp-content/uploads/2021/03/NB_Vn_LNY-Promotion_BannerW885xH522px_1_XGear.jpg"-->
+<!--             style="width:100%">-->
+<!--        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2020/12/Asus-AMD-4000-series-slider.jpg"-->
+<!--             style="width:100%">-->
+<!--        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2021/03/bão-mờ-si-slider-1.jpg"-->
+<!--             style="width:100%">-->
+<!--        <img class="mySlides" src="https://xgear.vn/wp-content/uploads/2020/12/freebuild-slider_compressed.jpg"-->
+<!--             style="width:100%">-->
+<!--    </div>-->
+<!--    <script>-->
+<!--          var myIndex = 0;-->
+<!--          carousel();-->
 
-          function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-              x[i].style.display = "none";
-            }
-            myIndex++;
-            if (myIndex > x.length) {myIndex = 1}
-            x[myIndex-1].style.display = "block";
-            setTimeout(carousel, 2000); // Change image every 2 seconds
-          }
-    </script>
-    <div class="ads">
-        <div class="grid">
-            <div class="grid__row">
-                <div class="grid__column-2-4">
-                    <img width="270" height="427"
-                         src="https://xgear.vn/wp-content/uploads/2021/02/asus-trang-ch%E1%BB%A7.jpg" alt=""
-                         class="ads-img">
-                </div>
-                <div class="grid__column-2-4">
-                    <img width="270" height="427"
-                         src="https://xgear.vn/wp-content/uploads/2020/12/MSI-trang-ch%E1%BB%A7.jpg" alt=""
-                         class="ads-img">
-                </div>
-                <div class="grid__column-2-4">
-                    <img width="270" height="427" src="https://xgear.vn/wp-content/uploads/2020/02/PC.jpg" alt=""
-                         class="ads-img">
-                </div>
-                <div class="grid__column-2-4">
-                    <img width="270" height="427"
-                         src="https://xgear.vn/wp-content/uploads/2020/02/M%C3%A0n-h%C3%ACnh-mua-k%C3%A8m-PC.jpg" alt=""
-                         class="ads-img">
-                </div>
-                <div class="grid__column-2-4">
-                    <img width="270" height="427" src="https://xgear.vn/wp-content/uploads/2020/02/Acer-Gaming.jpg"
-                         alt=""
-                         class="ads-img">
-                </div>
-            </div>
-        </div>
-    </div>
+<!--          function carousel() {-->
+<!--            var i;-->
+<!--            var x = document.getElementsByClassName("mySlides");-->
+<!--            for (i = 0; i < x.length; i++) {-->
+<!--              x[i].style.display = "none";-->
+<!--            }-->
+<!--            myIndex++;-->
+<!--            if (myIndex > x.length) {myIndex = 1}-->
+<!--            x[myIndex-1].style.display = "block";-->
+<!--            setTimeout(carousel, 2000); // Change image every 2 seconds-->
+<!--          }-->
+<!--    </script>-->
+<!--    <div class="ads">-->
+<!--        <div class="grid">-->
+<!--            <div class="grid__row">-->
+<!--                <div class="grid__column-2-4">-->
+<!--                    <img width="270" height="427"-->
+<!--                         src="https://xgear.vn/wp-content/uploads/2021/02/asus-trang-ch%E1%BB%A7.jpg" alt=""-->
+<!--                         class="ads-img">-->
+<!--                </div>-->
+<!--                <div class="grid__column-2-4">-->
+<!--                    <img width="270" height="427"-->
+<!--                         src="https://xgear.vn/wp-content/uploads/2020/12/MSI-trang-ch%E1%BB%A7.jpg" alt=""-->
+<!--                         class="ads-img">-->
+<!--                </div>-->
+<!--                <div class="grid__column-2-4">-->
+<!--                    <img width="270" height="427" src="https://xgear.vn/wp-content/uploads/2020/02/PC.jpg" alt=""-->
+<!--                         class="ads-img">-->
+<!--                </div>-->
+<!--                <div class="grid__column-2-4">-->
+<!--                    <img width="270" height="427"-->
+<!--                         src="https://xgear.vn/wp-content/uploads/2020/02/M%C3%A0n-h%C3%ACnh-mua-k%C3%A8m-PC.jpg" alt=""-->
+<!--                         class="ads-img">-->
+<!--                </div>-->
+<!--                <div class="grid__column-2-4">-->
+<!--                    <img width="270" height="427" src="https://xgear.vn/wp-content/uploads/2020/02/Acer-Gaming.jpg"-->
+<!--                         alt=""-->
+<!--                         class="ads-img">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <footer class="footer">
         <div class="footer__logo">
             <img class="footer__logo-img footer" src="https://cdn.worldvectorlogo.com/logos/itech.svg"

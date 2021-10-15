@@ -2,6 +2,7 @@
 from django.urls import path
 from .views import *
 from .middlewares.auth import auth_middleware
+from . import views
 
 
 urlpatterns = [
@@ -12,5 +13,6 @@ urlpatterns = [
     path('logout', Logout, name='logout'), #Đăng xuất
     path('register', Register.as_view(), name='register'), #Trang đăng kí
     path('cart', auth_middleware(Cart.as_view()), name='cart'),#Trang giỏ hàng
+    path('detailOrder/', views.detail, name='detail'),
 
 ]
